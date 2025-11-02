@@ -1,0 +1,38 @@
+package com.muhibsoft.matounso.model;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "coordonnee")
+public class Coordonnee {
+
+    @Id
+    @Column(name = "id_user")
+    private Long idUser;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "telephone")
+    private String telephone;
+    @Column(name = "datecreation", insertable = false)
+    private LocalDateTime dateCreation;
+    @Column(name = "datemodification")
+    private LocalDateTime dateModification;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "id_user")
+    private User user;
+}
