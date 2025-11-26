@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.muhibsoft.matounso.enums.UserStatutEnum;
+import com.muhibsoft.matounso.enums.StatutEnum;
 import com.muhibsoft.matounso.model.Coordonnee;
 import com.muhibsoft.matounso.model.MotDePasse;
 import com.muhibsoft.matounso.repository.CoordonneeRepository;
@@ -64,12 +64,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
                 // Récupérer le rôle de l'utilisateur
                 String nomRole = userRoleRepository
-                                .findNomRoleByIdUser(user.getIdUser(), UserStatutEnum.ACTIF)
+                                .findNomRoleByIdUser(user.getIdUser(), StatutEnum.ACTIF)
                                 .orElseThrow(() -> new UsernameNotFoundException(
                                                 "Rôle non trouvé pour l'utilisateur : " + email));
 
                 Iterable<String> nomPermissions = rolePermissionRepository.findNomPermissionByNomRole(nomRole,
-                                UserStatutEnum.ACTIF);
+                                StatutEnum.ACTIF);
                 Set<GrantedAuthority> authorities = new HashSet<>();
 
                 nomPermissions.forEach(nomPermission -> {

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.muhibsoft.matounso.composeKey.UserRoleKey;
-import com.muhibsoft.matounso.enums.UserStatutEnum;
+import com.muhibsoft.matounso.enums.StatutEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -46,6 +46,6 @@ public class UserRole {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "statut", insertable = false)
-    private UserStatutEnum statut;
+    private StatutEnum statut;
 
 }

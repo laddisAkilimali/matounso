@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.muhibsoft.matounso.composeKey.UserRolePermissionKey;
-import com.muhibsoft.matounso.enums.UserStatutEnum;
+import com.muhibsoft.matounso.enums.StatutEnum;
 import com.muhibsoft.matounso.model.RolePermission;
 
 @Repository
@@ -19,5 +19,5 @@ public interface RolePermissionRepository extends JpaRepository<RolePermission, 
                         AND rp.statut = :statut
                         """)
         Iterable<String> findNomPermissionByNomRole(@Param("nomRole") String nomRole,
-                        @Param("statut") UserStatutEnum statut);
+                        @Param("statut") StatutEnum statut);
 }

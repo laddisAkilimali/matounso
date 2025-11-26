@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.muhibsoft.matounso.composeKey.UserRoleKey;
-import com.muhibsoft.matounso.enums.UserStatutEnum;
+import com.muhibsoft.matounso.enums.StatutEnum;
 import com.muhibsoft.matounso.model.UserRole;
 
 @Repository
@@ -21,5 +21,5 @@ public interface UserRoleRepository extends JpaRepository<UserRole, UserRoleKey>
                         AND uir.statut = :statut
                         """)
         Optional<String> findNomRoleByIdUser(@Param("idUser") Long idUser,
-                        @Param("statut") UserStatutEnum statut);
+                        @Param("statut") StatutEnum statut);
 }

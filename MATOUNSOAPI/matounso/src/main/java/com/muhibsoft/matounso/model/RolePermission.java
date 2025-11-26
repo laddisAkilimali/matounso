@@ -3,7 +3,7 @@ package com.muhibsoft.matounso.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.muhibsoft.matounso.composeKey.UserRolePermissionKey;
-import com.muhibsoft.matounso.enums.UserStatutEnum;
+import com.muhibsoft.matounso.enums.StatutEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
@@ -42,7 +42,7 @@ public class RolePermission {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "statut", insertable = false)
-    private UserStatutEnum statut;
+    private StatutEnum statut;
 
     @Column(name = "datedesactivation")
     private LocalDate dateDesactivation;
